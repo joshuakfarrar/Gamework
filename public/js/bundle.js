@@ -446,13 +446,15 @@ require.define("/node_modules/domready/ready.js",function(require,module,exports
 })
 });
 
-require.define("/lib/game.js",function(require,module,exports,__dirname,__filename,process){var Player = require('./player')
+require.define("/lib/Game.js",function(require,module,exports,__dirname,__filename,process){var Player = require('./domain/Player')
+  , $ = require('../vendor/jquery')
 
 var Game = function (element) {
   this.fps = 60;
-  this.width = 800;
-  this.height = 600;
-  this.context = document.getElementById(element).getContext('2d');
+  this.canvas = $(element).get(0);
+  this.context = this.canvas.getContext('2d');
+  this.width = this.canvas.width;
+  this.height = this.canvas.height;
   this.players = [];
   this.players.push(new Player(this));
   this.frameCount = 0;
@@ -503,7 +505,7 @@ module.exports = Game;
 
 });
 
-require.define("/lib/player.js",function(require,module,exports,__dirname,__filename,process){var Keys = require('./keys')
+require.define("/lib/domain/Player.js",function(require,module,exports,__dirname,__filename,process){var Keys = require('../keys')
 
 var Player = function (game, keys) {
   this.game = game;
@@ -559,7 +561,7 @@ module.exports = Player;
 
 });
 
-require.define("/lib/keys.js",function(require,module,exports,__dirname,__filename,process){var $ = require('./jquery')
+require.define("/lib/keys.js",function(require,module,exports,__dirname,__filename,process){var $ = require('../vendor/jquery')
 
 var Keys = function () {
   this.keydown = {};
@@ -588,7 +590,7 @@ module.exports = new Keys;
 
 });
 
-require.define("/lib/jquery.js",function(require,module,exports,__dirname,__filename,process){// Uses Node, AMD or browser globals to create a module.
+require.define("/vendor/jquery.js",function(require,module,exports,__dirname,__filename,process){// Uses Node, AMD or browser globals to create a module.
 
 // If you want something that will work in other stricter CommonJS environments,
 // or if you need to create a circular dependency, see commonJsStrict.js
@@ -9924,11 +9926,12 @@ return jQuery;
 });
 
 require.define("/entry.js",function(require,module,exports,__dirname,__filename,process){var domready = require('domready')
-  , Game = require('./lib/game')
+  , Game = require('./lib/Game')
+  , $ = require('./vendor/jquery')
 
 domready(function () {
   $('#title').text('LOLRPG');
-  var game = new Game('canvas');
+  var game = new Game('#canvas');
 });
 
 });
