@@ -5,7 +5,6 @@ var http = require('http')
   , port = process.env.port || 8080
 
 httpServer = http.createServer(function (req, res) {
-  console.log('%s - %s', req.method, req.url);
   if (req.method === 'GET' && req.url ==='/') {
     res.writeHead(200, {'Content-type': 'text/html'});
     res.end(ejs.render(fs.readFileSync(__dirname + '/views/index.ejs', 'utf8'), { title: 'Noob MMO' }));
