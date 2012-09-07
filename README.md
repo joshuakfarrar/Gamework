@@ -9,9 +9,9 @@ Installation
 It's pretty easy to install. Clone the repository, and in the root directory..
 ```
 zipp@zeratul:~/gamework$ npm install
-zipp@zeratul:~/game$ npm start
+zipp@zeratul:~/gamework$ npm start
 
-> gamework@0.0.1 start /home/zipp/game
+> gamework@0.0.1 start /home/zipp/gamework
 > node app
 
 ```
