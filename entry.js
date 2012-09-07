@@ -1,5 +1,5 @@
 var domready = require('domready')
-  , Game = require('./lib/game')
+  , Game = require('./lib/Game')
 
 domready(function () {
   $('#title').text('LOLRPG');
