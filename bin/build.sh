@@ -1,2 +1,2 @@
 #!/bin/bash
-browserify entry.js -o public/javascripts/bundle.js
+browserify entry.js -o public/js/bundle.js
