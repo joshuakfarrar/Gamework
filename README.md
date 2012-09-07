@@ -8,7 +8,7 @@ Requirements
 
 You'll need browserify to build gamework. You'll also need a version of jquery-browserify. I'm going to add vendor libraries to package.json whenever I get around to it. I should probably stop wasting my time writing READMEs.
 ```
-zipp@zeratul:~% sudo npm -g install browserify
+zipp@zeratul:~$ sudo npm -g install browserify
 ```
 
 Installation
